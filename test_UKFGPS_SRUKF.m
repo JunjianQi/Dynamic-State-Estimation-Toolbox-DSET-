@@ -126,7 +126,7 @@ end
 R = diag(0.01^2*ones(1,4*n_sensor));
 Y = Y_real;
 for i=1:4*n_sensor % meas: eR eI iR iI
-    Y(i,:) = Y(i,:) + R(i,i).*randn(1,size(Y,2));
+    Y(i,:) = Y(i,:) + sqrt(R(i,i)).*randn(1,size(Y,2));
 end
 %% estimate with UKF-GPS
 s_pos = para{9};
